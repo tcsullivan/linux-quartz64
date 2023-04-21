@@ -1279,6 +1279,20 @@
 		status = "disabled";
 	};
 
+        rng: rng@fe378000 {
+		compatible = "rockchip,trngv1";
+		reg = <0x0 0xfe378000 0x0 0x8000>;
+		clocks = <&cru SCMI_CRYPTO_CORE>, <&cru SCMI_CRYPTO_PKA>,
+			<&cru SCMI_CRYPTO_RNG>;
+		clock-names = "clk_crypto", "clk_crypto_pka",
+			"clk_crypto_rng";
+		assigned-clocks = <&cru SCMI_CRYPTO_CORE>, <&cru SCMI_CRYPTO_PKA>,
+			<&cru SCMI_CRYPTO_RNG>;
+		resets = <&cru SRST_CRYPTO_CORE>, <&cru SRST_CRYPTO_PKA>, <&cru SRST_CRYPTO_RNG>;
+		reset-names = "reset";
+		status = "disabled";
+        };
+
 	iommu_pcie: iommu@fc900000 {
 		compatible = "arm,smmu-v3";
 		reg = <0x0 0xfc900000 0x0 0x200000>;

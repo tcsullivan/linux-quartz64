@@ -252,6 +252,10 @@
 	};
 };
 
+&rng {
+	status = "okay";
+};
+
 &tsadc {
 	status = "okay";
 };
